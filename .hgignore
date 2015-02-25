@@ -1,0 +1,11 @@
+syntax: glob
+Builds/
+Temp/
+Library/
+*.pidb
+*.userprefs
+*.csproj
+*.unityproj
+*.sln
+*.suo
+obj/
