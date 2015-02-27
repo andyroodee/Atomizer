@@ -13,13 +13,7 @@ public class Warp : AtomizerEffect
 
 	public float StartScale
 	{ get; set; }
-	
-	private Vector3 position;	
-	private Vector3[] targetPositions;
-	private Vector3[] originalPositions;
-	private Vector3 centroid;
-	private float originalSize;
-	
+		
 	public override IEnumerator SetParticles(ParticleSystem.Particle[] particles)
 	{
 		centroid = ParticleSystemHelper.GetParticleSystemCentroid(particles);
@@ -66,5 +60,11 @@ public class Warp : AtomizerEffect
 				particles[i].size = Mathf.Lerp(StartScale * originalSize, originalSize, 1.0f - sizeLerp);
 			}
 		}
-	}
+    }
+
+    private Vector3 position;
+    private Vector3[] targetPositions;
+    private Vector3[] originalPositions;
+    private Vector3 centroid;
+    private float originalSize;
 }

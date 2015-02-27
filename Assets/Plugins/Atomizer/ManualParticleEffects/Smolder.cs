@@ -38,14 +38,7 @@ public class Smolder : AtomizerEffect
 
 	public Vector3 Source
 	{ get; set; }
-
-	private ParticleSystem.Particle sourceParticle;
-	private int burntCount;
-	private float[] smolderDurations;
-	private float[] burnDurations;
-	private SmolderState[] smolderStates;
-	private float smolderDistance;
-
+    
 	public override IEnumerator SetParticles(ParticleSystem.Particle[] particles)
 	{
 		smolderDistance = 0.0f;
@@ -127,4 +120,11 @@ public class Smolder : AtomizerEffect
 			}
 		}
 	}
+
+    private ParticleSystem.Particle sourceParticle;
+    private int burntCount;
+    private float[] smolderDurations;
+    private float[] burnDurations;
+    private SmolderState[] smolderStates;
+    private float smolderDistance;
 }

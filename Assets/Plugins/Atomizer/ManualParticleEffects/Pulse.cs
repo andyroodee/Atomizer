@@ -12,12 +12,6 @@ public class Pulse : AtomizerEffect
 	public float Duration
 	{ get; set; }
 	
-	private Vector3 centroid;
-	private Vector3[] particleToCentroid;
-	private bool isGrowing;
-	private float lastPulseTime;
-	private Vector3 position;
-	
 	private void CalculateVectorsToCentroid(ParticleSystem.Particle[] particles)
 	{
 		particleToCentroid = new Vector3[particles.Length];
@@ -76,5 +70,11 @@ public class Pulse : AtomizerEffect
 				particles[i].position = position;
 			}
 		}
-	}
+    }
+
+    private Vector3 centroid;
+    private Vector3[] particleToCentroid;
+    private bool isGrowing;
+    private float lastPulseTime;
+    private Vector3 position;
 }

@@ -14,11 +14,6 @@ public class Vacuum : AtomizerEffect
 
 	public float Duration
 	{ get; set; }
-
-	private Vector3 centroid;
-	private float[] particleToCentroidDistances;
-	private float maxDistanceToCentroid;
-	private Vector3 position;
 	
 	private void CalculateVectorsToCentroid(ParticleSystem.Particle[] particles)
 	{
@@ -56,5 +51,10 @@ public class Vacuum : AtomizerEffect
 				(maxDistanceToCentroid - particleToCentroidDistances[i]) * Time.deltaTime * MoveSpeed);
 			particles[i].position = position;
 		}
-	}
+    }
+
+    private Vector3 centroid;
+    private float[] particleToCentroidDistances;
+    private float maxDistanceToCentroid;
+    private Vector3 position;
 }

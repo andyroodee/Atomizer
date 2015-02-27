@@ -20,9 +20,6 @@ public class SwapColours : AtomizerEffect
 	public float Duration
 	{ get; set; }
 
-	private Color32[] originalColours;
-	private Color32[] targetColours;
-
 	public override IEnumerator SetParticles(ParticleSystem.Particle[] particles)
 	{				
 		// For each particle, figure out the target colour we
@@ -93,4 +90,7 @@ public class SwapColours : AtomizerEffect
 			particles[i].color = Color32.Lerp(originalColours[i], targetColours[i], t);
 		}
 	}
+
+    private Color32[] originalColours;
+    private Color32[] targetColours;
 }

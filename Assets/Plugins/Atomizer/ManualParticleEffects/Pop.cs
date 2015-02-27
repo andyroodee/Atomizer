@@ -9,9 +9,6 @@ public class Pop : AtomizerEffect
 	public float Duration
 	{ get; set; }
 	
-	private Vector3[] randomDirections;
-	private Vector3 position;
-
 	private void ProcessParticles(ParticleSystem.Particle[] particles, int startIndex, int count)
 	{
 		Vector3 randomDirection = new Vector3(0.0f, 0.0f, 0.0f);
@@ -53,4 +50,7 @@ public class Pop : AtomizerEffect
 			particles[i].position = position;
 		}
 	}
+
+    private Vector3[] randomDirections;
+    private Vector3 position;
 }

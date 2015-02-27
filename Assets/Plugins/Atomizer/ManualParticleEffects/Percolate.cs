@@ -40,10 +40,6 @@ public class Percolate : AtomizerEffect
     public PercolationMethod Method
     { get; set; }
 		
-	private float maxVal;
-	private float minVal;
-	private float currentVal;
-		
 	public override IEnumerator SetParticles(ParticleSystem.Particle[] particles)
 	{
 		maxVal = 0.0f;
@@ -167,4 +163,8 @@ public class Percolate : AtomizerEffect
 			IsFinished = true;
 		}
 	}
+
+    private float maxVal;
+    private float minVal;
+    private float currentVal;
 }

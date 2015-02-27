@@ -7,19 +7,11 @@ using System.Collections.Generic;
 [RequireComponent(typeof(Camera))]
 public class Atomizer : MonoBehaviour
 {
-	[SerializeField] private int renderLayer;
-			
-	private static Atomizer instance;
-	
-	private Action onFinished;
-	private AtomizerEffectGroup effectGroup;
-	private int previousLayer;
-	private GameObject target;
+	[SerializeField] 
+    private int renderLayer;	
 
 	void Awake()
 	{
-		instance = this;
-		DontDestroyOnLoad(instance);
 		previousLayer = 0;	
 		camera.enabled = false;
 	}
@@ -55,23 +47,22 @@ public class Atomizer : MonoBehaviour
 
 	public static void Atomize(GameObject target, AtomizerEffectGroup effectGroup, Action OnFinished)
 	{
-		if (null == instance)
-		{
-			Instantiate(Resources.Load<Atomizer>("Atomizer"));
-		}
+        GameObject atomizerPrefab = Resources.Load<GameObject>("Atomizer");
 
-		instance.effectGroup = effectGroup;
-		instance.onFinished = OnFinished;
-		instance.target = target;
-		instance.UpdateRenderCamera();	
-		instance.previousLayer = target.layer;	
-		LayerHelper.SetLayer(target, instance.renderLayer);
-		instance.camera.Render();
+        Atomizer atomizer = atomizerPrefab.GetComponent<Atomizer>();
+
+        atomizer.effectGroup = effectGroup;
+        atomizer.onFinished = OnFinished;
+        atomizer.target = target;
+        atomizer.UpdateRenderCamera();
+        atomizer.previousLayer = target.layer;
+        LayerHelper.SetLayer(target, atomizer.renderLayer);
+        atomizer.camera.Render();
 	}
 	
 	private void CleanupOnFailure()
-	{			
-		Destroy(instance.effectGroup);
+	{
+		Destroy(effectGroup);
 		LayerHelper.SetLayer(target, previousLayer);	
 	}
 			
@@ -116,4 +107,9 @@ public class Atomizer : MonoBehaviour
 		BuildEffect();
 		yield return null;
 	}
+
+    private Action onFinished;
+    private AtomizerEffectGroup effectGroup;
+    private int previousLayer;
+    private GameObject target;
 }

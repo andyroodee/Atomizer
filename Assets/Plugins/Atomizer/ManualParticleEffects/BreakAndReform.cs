@@ -19,13 +19,6 @@ public class BreakAndReform : AtomizerEffect
 	public float ReformPhaseDuration
 	{ get; set; }
 			
-	private Vector3[] endPositions;
-	private Vector3[] originalPositions;
-	private Vector3[] randomDirections;
-
-	private bool endPositionsStored; 
-	private Vector3 position;
-			
 	private void ProcessParticles(ParticleSystem.Particle[] particles, int startIndex, int count)
 	{
 		Vector3 randomDirection = new Vector3(0.0f, 0.0f, 0.0f);
@@ -96,4 +89,10 @@ public class BreakAndReform : AtomizerEffect
 			}
 		}
 	}
+
+    private Vector3[] endPositions;
+    private Vector3[] originalPositions;
+    private Vector3[] randomDirections;
+    private bool endPositionsStored;
+    private Vector3 position;
 }

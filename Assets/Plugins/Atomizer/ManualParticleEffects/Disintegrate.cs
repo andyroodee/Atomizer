@@ -11,9 +11,7 @@ public class Disintegrate : AtomizerEffect
 
 	public Color FadeColour
 	{ get; set; }
-
-	private int[] randomOrdering;
-
+    
 	public override IEnumerator SetParticles(ParticleSystem.Particle[] particles)
 	{
         randomOrdering = ParticleSystemHelper.GenerateRandomOrdering(particles);
@@ -38,4 +36,6 @@ public class Disintegrate : AtomizerEffect
 			}
 		}
 	}
+
+    private int[] randomOrdering;
 }

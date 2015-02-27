@@ -9,3 +9,5 @@ Library/
 *.sln
 *.suo
 obj/
+Assets/AssetStoreTools
+Assets/AssetStoreTools.meta

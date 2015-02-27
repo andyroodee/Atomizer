@@ -8,9 +8,7 @@ public class Jiggle : AtomizerEffect
 
 	public float Duration
 	{ get; set; }
-
-	private Vector3 position;
-
+    
 	public override void Update(ParticleSystem.Particle[] particles, float activeTime)
 	{					
 		if (activeTime > Duration)
@@ -27,4 +25,6 @@ public class Jiggle : AtomizerEffect
 			particles[i].position = position;
 		}
 	}
+
+    private Vector3 position;
 }

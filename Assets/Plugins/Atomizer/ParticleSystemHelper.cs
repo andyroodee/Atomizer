@@ -6,6 +6,11 @@ public static class ParticleSystemHelper
 	public static Vector3 GetParticleSystemCentroid(ParticleSystem.Particle[] particles)
 	{		
 		Vector3 sum = new Vector3(0.0f, 0.0f, 0.0f);
+
+        if (particles.Length == 0)
+        {
+            return sum;
+        }
 		
 		for (int i = 0; i < particles.Length; ++i)
 		{				

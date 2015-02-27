@@ -3,28 +3,28 @@ using UnityEditor;
 using System.Collections;
 
 [CustomEditor(typeof(Atomizer))]
-public class AtomizerEditor : Editor 
+public class AtomizerEditor : Editor
 {
-	private SerializedObject atomizer;
-	private SerializedProperty renderLayer;
+    private SerializedObject atomizer;
+    private SerializedProperty renderLayer;
 
-	void OnEnable()
-	{
-		atomizer = new SerializedObject(target);
-		renderLayer = atomizer.FindProperty("renderLayer");
-	}
+    void OnEnable()
+    {
+        atomizer = new SerializedObject(target);
+        renderLayer = atomizer.FindProperty("renderLayer");
+    }
 
-	public override void OnInspectorGUI() 
-	{
-		if (target == null)
-		{
-			return;
-		}
-		
-		atomizer.Update();
+    public override void OnInspectorGUI()
+    {
+        if (target == null)
+        {
+            return;
+        }
 
-		renderLayer.intValue = EditorGUILayout.LayerField("Atomizer Layer:", renderLayer.intValue);
+        atomizer.Update();
 
-		atomizer.ApplyModifiedProperties();
-	}
+        renderLayer.intValue = EditorGUILayout.LayerField("Atomizer Layer:", renderLayer.intValue);
+
+        atomizer.ApplyModifiedProperties();
+    }
 }

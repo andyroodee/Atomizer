@@ -11,7 +11,7 @@ public class AtomizerEffectGroup : MonoBehaviour
 	public static readonly int DefaultMaxParticleCount = 8192;
 	public static readonly float DefaultParticleSize = 0.01f;
 #else
-	public static readonly float DefaultParticleSize = 0.01f;
+	public static readonly float DefaultParticleSize = 0.04f;
 	public static readonly int DefaultMaxParticleCount = 32768;
 #endif
 	public static readonly bool DefaultForceParticleSize = true;
@@ -274,7 +274,7 @@ public class AtomizerEffectGroup : MonoBehaviour
 
         float minDistance = Vector3.Distance(atomizerCamera.transform.position, atomizerTarget.transform.position);
         Color32 color = new Color32(0, 0, 0, 0);
-        Vector3 screenPoint = new Vector3(0.0f, 0.0f, minDistance - 1.0f);
+        Vector3 screenPoint = new Vector3(0.0f, 0.0f, minDistance);
 
         for (int i = 0; i < imageHeight; ++i)
         {

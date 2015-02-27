@@ -22,7 +22,7 @@ TextureImporter:
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
-  textureFormat: 5
+  textureFormat: -3
   maxTextureSize: 1024
   textureSettings:
     filterMode: 1
@@ -42,10 +42,6 @@ TextureImporter:
   alphaIsTransparency: 1
   textureType: 5
   buildTargetSettings:
-  - buildTarget: Web
-    maxTextureSize: 1024
-    textureFormat: 5
-    compressionQuality: 50
   - buildTarget: Standalone
     maxTextureSize: 1024
     textureFormat: 5
